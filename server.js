@@ -3,9 +3,16 @@ require("dotenv").config();
 const express = require("express");
 const mongoose = require("mongoose");
 const route = require("./routes/route");
+const cors = require("cors");
 
 // express app
 const app = express();
+
+app.use(
+  cors({
+    origin: "https://field-view-b78b4.web.app",
+  })
+);
 
 // middleware
 app.use(express.json());
