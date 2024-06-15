@@ -41,13 +41,20 @@ const {
   updateLocationStatus,
 } = require("../controllers/processControler");
 
+const {
+  getAssets,
+  updateAsset,
+  createNewAsset,
+} = require("../controllers/assetController");
+
 const router = express.Router();
 
-// GET all tasks/forms/processes
+// GET all tasks/forms/processes/assets
 router.get("/forms", getForms);
 router.get("/forms-schedule", getFormsSchedule);
 router.get("/tasks", getTasks);
 router.get("/processes", getProcesses);
+router.get("/assets", getAssets);
 
 // GET a single task/form
 router.get("/forms/:id", getForm);
@@ -57,7 +64,6 @@ router.get("/userData", getUserTabs);
 
 //FILTER FORMS
 // router.get("/forms/filter", filterForms);
-
 // POST a new task/form/location
 
 router.post("/forms", createForm);
@@ -81,6 +87,9 @@ router.patch("/userData", updateUserTabs);
 //UPDATE LOCACTION STATUS
 router.patch("/updateLocationStatus", updateLocationStatus);
 
+//UPDATE ASSET
+router.patch("/updateAsset", updateAsset);
+
 //update TAB NAME
 router.patch("/userDataTabName", updateUserTabName);
 
@@ -93,5 +102,7 @@ router.patch("/updateFormListOfColumns", updateFormListOfColumnToDisplay);
 router.patch("/updateTaskListOfColumns", updateTaskListOfColumnToDisplay);
 //ADD NEW LOCATION TO LOCATION ARRAY IN DATANASE
 router.patch("/addLocation", createLocation);
+//ADD NEW ASSET TO LIST OF ASSSETS
+router.patch("/addAsset", createNewAsset);
 
 module.exports = router;

@@ -11,6 +11,7 @@ const app = express();
 app.use(
   cors({
     origin: "https://field-view-b78b4.web.app",
+    methods:["GET", "POST"]
   })
 );
 
@@ -36,10 +37,3 @@ mongoose
     console.log(err);
   });
 
-// app.get("/", (req, res) => {
-//   res.json({ mssg: "Welcome mojeje sdfsd appp to the app" });
-// });
-
-// app.listen(process.env.PORT, () => {
-//   console.log("watch PORT");
-// });
